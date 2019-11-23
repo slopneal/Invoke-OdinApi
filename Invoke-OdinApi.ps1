@@ -113,7 +113,7 @@ function Invoke-OdinApi {
             $OrderID = $GetOrder_API.Result[0][0]
             $OrderNumber = $GetOrder_API.Result[0][1].Trim()
             $CreationTime = $GetOrder_API.Result[0][6]
-            $Total = '{0} {1:N2}' -f $GetOrder_API.Result[0][17], $GetOrder_API.Result[0][8]
+            $Total = '{0} {1:F2}' -f $GetOrder_API.Result[0][17], $GetOrder_API.Result[0][8]
             $Comments = $GetOrder_API.Result[0][12].Trim()
             $SignatureString = @($OrderID, $OrderNumber, $CreationTime, $Total, $Comments) -join ''
             Write-Verbose -Message "MD5 Signature String: $SignatureString"
